@@ -1,0 +1,11 @@
+Django==5.0.6
+djangorestframework
+django-cors-headers
+Pillow
+django-filter
+django-summernote
+# New additions for Deployment:
+gunicorn            # Production web server (Render needs this)
+psycopg2-binary     # PostgreSQL adapter (SQLite won't work on Render)
+dj-database-url     # To read database URL from environment variables
+whitenoise          # To serve static files (CSS/JS) in production
