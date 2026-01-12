@@ -1,0 +1,11 @@
+# Pre-commit configuration for local secret scanning
+# Install: pip install pre-commit ggshield
+# Setup: pre-commit install
+
+repos:
+  - repo: https://github.com/gitguardian/ggshield
+    rev: v1.28.0
+    hooks:
+      - id: ggshield
+        language_version: python3
+        stages: [pre-commit]

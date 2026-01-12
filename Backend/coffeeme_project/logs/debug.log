@@ -1837,3 +1837,4 @@ INFO 2026-01-12 21:09:08,745 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 
 INFO 2026-01-12 21:09:08,753 log "GET /static/admin/js/filters.js HTTP/1.1" 304 0
 INFO 2026-01-12 21:09:10,040 log "GET /admin/blog/tag/ HTTP/1.1" 200 12790
 INFO 2026-01-12 21:09:10,079 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:19:41,795 log "GET /api/posts/d3c3bee6-e340-412c-8251-d30013d62020/ HTTP/1.1" 200 16917
