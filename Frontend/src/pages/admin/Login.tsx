@@ -16,14 +16,14 @@ export function Login() {
     try {
       await login(username, password);
       navigate('/admin/dashboard');
-    } catch (err) {
+    } catch {
       setError('Invalid credentials');
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FAF7F2]">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"
@@ -31,7 +31,7 @@ export function Login() {
         <h2 className="text-2xl font-bold text-[#3C2415] mb-6 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           Admin Login
         </h2>
-        
+
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
             {error}
@@ -49,7 +49,7 @@ export function Login() {
               required
             />
           </div>
-          
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
             <input

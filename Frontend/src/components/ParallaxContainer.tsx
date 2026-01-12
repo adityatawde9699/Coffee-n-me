@@ -55,7 +55,7 @@ export function ParallaxBackground({ children, backgroundElements, className = '
           {backgroundElements}
         </motion.div>
       )}
-      
+
       {/* Foreground content with faster movement */}
       <motion.div
         style={{ y: foregroundY }}
@@ -74,11 +74,11 @@ interface ScrollTriggeredParallaxProps {
   className?: string;
 }
 
-export function ScrollTriggeredParallax({ 
-  children, 
-  speed = 0.3, 
+export function ScrollTriggeredParallax({
+  children,
+  speed: _speed = 0.3,
   triggerOnce = false,
-  className = '' 
+  className = ''
 }: ScrollTriggeredParallaxProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -164,7 +164,7 @@ export function CoffeeFloatingElements() {
           delay: 4,
         }}
       />
-      
+
       {/* Steam-like curves */}
       <motion.div
         className="absolute top-1/6 right-1/4 w-1 h-8 bg-gradient-to-t from-transparent to-[#F5E6D3] opacity-20 rounded-full"

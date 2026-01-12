@@ -9,7 +9,7 @@ export function WriteBlog() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [excerpt, setExcerpt] = useState('');
-    const [category, setCategory] = useState('');
+    // TODO: Add category selection when UI is ready
     const [image, setImage] = useState<File | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();

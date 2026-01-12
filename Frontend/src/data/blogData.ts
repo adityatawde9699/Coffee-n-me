@@ -13,6 +13,12 @@ export interface Category {
   slug: string;
 }
 
+export interface Tag {
+  id: number;
+  name: string;
+  slug: string;
+}
+
 export interface BlogPost {
   id: string; // CHANGED: UUIDs are strings
   title: string;
@@ -25,7 +31,7 @@ export interface BlogPost {
   category: Category | null; // CHANGED: Now an object, not a string
   reading_time: string;
   views?: number;
-  tags?: any[];
+  tags?: Tag[];
   related_posts?: BlogPost[];
 }
 

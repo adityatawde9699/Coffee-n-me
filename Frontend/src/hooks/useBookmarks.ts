@@ -20,7 +20,8 @@ export function useBookmarks() {
           // Usually it returns { id, post: { ... } } or similar.
           // Let's assume for now we need to map it.
           // If BookmarkSerializer returns { post: { id: ... } }
-          const bookmarkIds = response.data.results.map((b: any) => b.post.id);
+          interface BookmarkItem { post: { id: string } }
+          const bookmarkIds = response.data.results.map((b: BookmarkItem) => b.post.id);
           setBookmarks(bookmarkIds);
         } catch (error) {
           console.error('Failed to fetch bookmarks:', error);

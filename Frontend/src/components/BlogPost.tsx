@@ -10,7 +10,7 @@ import { TableOfContents } from './TableOfContents';
 import { ShareModal } from './ShareModal';
 import { Coffee, Calendar, User, ArrowLeft, Share2, Bookmark, BookmarkCheck, Eye, Tag } from 'lucide-react';
 import { Button } from './ui/button';
-import { Author, Category, BlogPost } from '../data/blogData'
+import { BlogPost } from '../data/blogData'
 import { useBookmarks } from '../hooks/useBookmarks';
 import { useReadingHistory } from '../hooks/useReadingHistory';
 import { useParams } from 'react-router-dom';
@@ -213,7 +213,7 @@ export function BlogPost({ onBack, onBlogClick }: BlogPostProps) {
                       className="px-3 py-1 bg-[#F5E6D3] text-[#8B4513] rounded-full text-sm"
                       style={{ fontFamily: 'Montserrat, sans-serif' }}
                     >
-                      {tag}
+                      {tag.name}
                     </span>
                   ))}
                 </div>

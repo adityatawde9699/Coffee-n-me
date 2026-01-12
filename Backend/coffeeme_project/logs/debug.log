@@ -1838,3 +1838,41 @@ INFO 2026-01-12 21:09:08,753 log "GET /static/admin/js/filters.js HTTP/1.1" 304 
 INFO 2026-01-12 21:09:10,040 log "GET /admin/blog/tag/ HTTP/1.1" 200 12790
 INFO 2026-01-12 21:09:10,079 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 INFO 2026-01-12 21:19:41,795 log "GET /api/posts/d3c3bee6-e340-412c-8251-d30013d62020/ HTTP/1.1" 200 16917
+WARNING 2026-01-12 23:44:44,980 log Unauthorized: /api/comments/
+WARNING 2026-01-12 23:45:05,371 log Unauthorized: /api/posts/e7d3b9cc-cdeb-4b49-a086-e7c2d6e596fc/like/
+WARNING 2026-01-12 23:45:12,081 log Not Found: /api/posts/slug/nonexistent-slug/
+WARNING 2026-01-12 23:45:16,007 log Unauthorized: /api/posts/
+WARNING 2026-01-12 23:45:27,062 log Bad Request: /api/search/
+INFO 2026-01-13 00:06:30,549 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-13 00:06:44,998 log Not Found: /
+WARNING 2026-01-13 00:06:45,028 log "GET / HTTP/1.1" 404 2782
+WARNING 2026-01-13 00:07:15,451 log Not Found: /summernote/
+WARNING 2026-01-13 00:07:15,480 log "GET /summernote/ HTTP/1.1" 404 3280
+WARNING 2026-01-13 00:07:56,261 log Method Not Allowed: /api/token-auth/
+WARNING 2026-01-13 00:07:56,275 log "GET /api/token-auth/ HTTP/1.1" 405 40
+WARNING 2026-01-13 00:08:29,547 log Not Found: /^media/(
+WARNING 2026-01-13 00:08:29,549 log "GET /%5Emedia/(?P%3Cpath%3E.*)$ HTTP/1.1" 404 2842
+INFO 2026-01-13 00:08:59,609 log "GET /api/ HTTP/1.1" 200 10489
+INFO 2026-01-13 00:09:00,121 log "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2026-01-13 00:09:00,122 log "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2026-01-13 00:09:00,126 log "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+INFO 2026-01-13 00:09:00,180 log "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2026-01-13 00:09:00,375 log "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+INFO 2026-01-13 00:09:00,393 log "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2026-01-13 00:09:00,421 log "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2026-01-13 00:09:00,425 log "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+INFO 2026-01-13 00:09:00,515 log "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+INFO 2026-01-13 00:09:00,543 log "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2026-01-13 00:09:00,591 log "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2026-01-13 00:09:00,730 log "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+INFO 2026-01-13 00:09:24,272 log "GET /api/home/ HTTP/1.1" 200 22563
+INFO 2026-01-13 00:09:36,989 log "GET /api/posts/5830e0a3-91bc-4197-8911-f1f29fb75317/ HTTP/1.1" 200 13975
+INFO 2026-01-13 00:10:01,070 log "GET /api/categories/ HTTP/1.1" 200 176
+INFO 2026-01-13 00:10:03,428 log "GET /api/posts/? HTTP/1.1" 200 2804
+INFO 2026-01-13 00:10:10,308 log "GET /api/home/ HTTP/1.1" 200 22563
+INFO 2026-01-13 00:10:50,298 log "GET /api/posts/6b32ae2c-3490-4368-a484-f244b3d65070/ HTTP/1.1" 200 22091
+INFO 2026-01-13 00:11:07,453 log "GET /api/ HTTP/1.1" 200 10489
+INFO 2026-01-13 00:11:10,548 log "GET /api/?format=json HTTP/1.1" 200 235
+INFO 2026-01-13 00:11:15,183 log "GET /api/?format=api HTTP/1.1" 200 10621
+INFO 2026-01-13 00:11:18,574 log "OPTIONS /api/ HTTP/1.1" 200 10348
+INFO 2026-01-13 00:11:20,003 log "OPTIONS /api/ HTTP/1.1" 200 10348

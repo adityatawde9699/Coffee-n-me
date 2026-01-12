@@ -13,7 +13,7 @@ interface ArticleCardProps {
   onClick?: () => void;
 }
 
-export function ArticleCard({ id, title, excerpt, imageUrl, readTime, category, onClick }: ArticleCardProps) {
+export function ArticleCard({ id: _id, title, excerpt, imageUrl, readTime, category, onClick }: ArticleCardProps) {
   // Helper to get category name safely
   const categoryName = typeof category === 'object' && category !== null ? category.name : category;
 

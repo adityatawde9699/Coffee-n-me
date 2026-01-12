@@ -7,7 +7,7 @@ import { Input } from './ui/input';
 import { useState, useEffect } from 'react';
 import { useBookmarks } from '../hooks/useBookmarks';
 
-import { Author, Category, BlogPost } from '../data/blogData';
+import { BlogPost } from '../data/blogData';
 
 interface BlogsProps {
   onBlogClick: (id: string) => void;

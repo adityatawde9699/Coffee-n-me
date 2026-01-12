@@ -71,6 +71,10 @@ jobs:
         run: npx tsc --noEmit
         continue-on-error: true  # Allow initial type issues
 
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true  # Allow initial lint issues
+
       - name: Build
         run: npm run build
         env:

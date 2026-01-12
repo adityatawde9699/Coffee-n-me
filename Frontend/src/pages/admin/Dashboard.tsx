@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../lib/api';
-import { BarChart3, Eye, ThumbsUp, FileText, MessageSquare } from 'lucide-react';
+import { Eye, ThumbsUp, FileText, MessageSquare, LucideIcon } from 'lucide-react';
+
+interface DraftPost {
+    id: string;
+    title: string;
+    updated_at: string;
+}
+
+interface PendingComment {
+    id: number;
+    author_name: string;
+    content: string;
+    created_at: string;
+}
 
 interface DashboardStats {
     stats: {
@@ -8,8 +21,8 @@ interface DashboardStats {
         total_views: number;
         total_likes: number;
     };
-    recent_drafts: any[];
-    pending_comments: any[];
+    recent_drafts: DraftPost[];
+    pending_comments: PendingComment[];
 }
 
 export function Dashboard() {
@@ -71,7 +84,7 @@ export function Dashboard() {
                         {data.recent_drafts.length === 0 ? (
                             <p className="text-gray-500">No drafts found.</p>
                         ) : (
-                            data.recent_drafts.map((draft: any) => (
+                            data.recent_drafts.map((draft) => (
                                 <div key={draft.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                                     <span className="font-medium text-gray-700">{draft.title}</span>
                                     <span className="text-sm text-gray-500">
@@ -93,7 +106,7 @@ export function Dashboard() {
                         {data.pending_comments.length === 0 ? (
                             <p className="text-gray-500">No pending comments.</p>
                         ) : (
-                            data.pending_comments.map((comment: any) => (
+                            data.pending_comments.map((comment) => (
                                 <div key={comment.id} className="p-3 bg-gray-50 rounded-lg">
                                     <div className="flex justify-between mb-1">
                                         <span className="font-medium text-sm">{comment.author_name}</span>
@@ -112,7 +125,14 @@ export function Dashboard() {
     );
 }
 
-function StatCard({ icon: Icon, label, value, color }: any) {
+interface StatCardProps {
+    icon: LucideIcon;
+    label: string;
+    value: number;
+    color: string;
+}
+
+function StatCard({ icon: Icon, label, value, color }: StatCardProps) {
     return (
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
             <div className={`p-3 rounded-lg ${color} bg-opacity-10`}>

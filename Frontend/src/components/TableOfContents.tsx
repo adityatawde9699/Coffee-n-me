@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { List, ChevronRight } from 'lucide-react';
 
@@ -42,7 +42,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
         <div className="bg-[#FFFEF9] rounded-xl p-6 shadow-md border border-[#E8D5B7]">
           <div className="flex items-center gap-2 mb-4 pb-4 border-b border-[#E8D5B7]">
             <List className="h-5 w-5 text-[#D2691E]" />
-            <h3 
+            <h3
               className="text-[#3C2415]"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
@@ -56,11 +56,10 @@ export function TableOfContents({ content }: TableOfContentsProps) {
                 key={section.id}
                 onClick={() => scrollToSection(index)}
                 whileHover={{ x: 4 }}
-                className={`w-full text-left text-sm py-2 px-3 rounded-lg transition-all ${
-                  activeSection === index
+                className={`w-full text-left text-sm py-2 px-3 rounded-lg transition-all ${activeSection === index
                     ? 'bg-[#F5E6D3] text-[#D2691E]'
                     : 'text-[#8B4513] hover:bg-[#FAF7F2]'
-                }`}
+                  }`}
                 style={{ fontFamily: 'Open Sans, sans-serif' }}
               >
                 <span className="line-clamp-2">{section.title}</span>
@@ -93,7 +92,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
               <div className="flex items-center justify-between mb-3 pb-3 border-b border-[#E8D5B7]">
                 <div className="flex items-center gap-2">
                   <List className="h-4 w-4 text-[#D2691E]" />
-                  <h3 
+                  <h3
                     className="text-sm text-[#3C2415]"
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
                   >
@@ -113,11 +112,10 @@ export function TableOfContents({ content }: TableOfContentsProps) {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(index)}
-                    className={`w-full text-left text-sm py-2 px-3 rounded-lg transition-all ${
-                      activeSection === index
+                    className={`w-full text-left text-sm py-2 px-3 rounded-lg transition-all ${activeSection === index
                         ? 'bg-[#F5E6D3] text-[#D2691E]'
                         : 'text-[#8B4513] hover:bg-[#FAF7F2]'
-                    }`}
+                      }`}
                     style={{ fontFamily: 'Open Sans, sans-serif' }}
                   >
                     <span className="line-clamp-2">{section.title}</span>
