@@ -977,3 +977,863 @@ WARNING 2026-01-12 20:52:29,181 log Unauthorized: /api/posts/c0983b26-1b55-4869-
 WARNING 2026-01-12 20:52:33,072 log Not Found: /api/posts/slug/nonexistent-slug/
 WARNING 2026-01-12 20:52:35,025 log Unauthorized: /api/posts/
 WARNING 2026-01-12 20:52:38,893 log Bad Request: /api/search/
+INFO 2026-01-12 20:57:33,297 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-12 20:57:42,637 log Not Found: /
+WARNING 2026-01-12 20:57:42,641 basehttp "GET / HTTP/1.1" 404 2512
+WARNING 2026-01-12 20:57:43,308 log Not Found: /favicon.ico
+WARNING 2026-01-12 20:57:43,310 basehttp "GET /favicon.ico HTTP/1.1" 404 2563
+INFO 2026-01-12 20:58:37,552 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-01-12 20:58:38,283 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4158
+INFO 2026-01-12 20:58:38,875 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2026-01-12 20:58:38,878 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2682
+INFO 2026-01-12 20:58:38,888 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2026-01-12 20:58:38,890 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 21544
+INFO 2026-01-12 20:58:38,984 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 17905
+INFO 2026-01-12 20:58:38,993 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-01-12 20:58:39,228 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-01-12 20:58:43,552 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4322
+INFO 2026-01-12 20:58:53,110 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4329
+INFO 2026-01-12 20:58:58,857 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-01-12 20:58:59,007 basehttp "GET /admin/ HTTP/1.1" 200 14030
+INFO 2026-01-12 20:58:59,071 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-01-12 20:58:59,116 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-01-12 20:58:59,126 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-01-12 20:59:46,897 basehttp "GET /api/home/ HTTP/1.1" 200 22563
+INFO 2026-01-12 20:59:47,755 basehttp "GET /media/blog_images/2025/12/jolly_roger_of_red_hair_pirates_lKElw5Q.jpg HTTP/1.1" 200 14174
+INFO 2026-01-12 20:59:47,758 basehttp "GET /media/blog_images/2025/12/Horizontal_One_Piece_Wallpaper.jpeg HTTP/1.1" 200 38542
+INFO 2026-01-12 20:59:47,785 basehttp "GET /media/blog_images/2025/12/one_piece.jpg HTTP/1.1" 200 720525
+INFO 2026-01-12 21:00:09,367 basehttp "GET /api/posts/5830e0a3-91bc-4197-8911-f1f29fb75317/ HTTP/1.1" 200 13975
+INFO 2026-01-12 21:00:11,839 basehttp "GET /api/home/ HTTP/1.1" 200 22563
+INFO 2026-01-12 21:00:28,086 basehttp "GET /api/posts/? HTTP/1.1" 200 2804
+INFO 2026-01-12 21:00:35,237 basehttp "GET /api/categories/ HTTP/1.1" 200 176
+INFO 2026-01-12 21:00:47,028 basehttp "GET /api/home/ HTTP/1.1" 200 22563
+INFO 2026-01-12 21:03:17,481 basehttp "GET /api/categories/ HTTP/1.1" 200 176
+INFO 2026-01-12 21:03:25,798 basehttp "GET /api/home/ HTTP/1.1" 200 22563
+INFO 2026-01-12 21:03:29,963 basehttp "GET /api/posts/d3c3bee6-e340-412c-8251-d30013d62020/ HTTP/1.1" 200 16917
+ERROR 2026-01-12 21:03:47,288 log Internal Server Error: /admin/blog/post/d3c3bee6-e340-412c-8251-d30013d62020/change/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Users\ASUS\AppData\Local\Python\pythoncore-3.14-64\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-01-12 21:03:47,331 basehttp "GET /admin/blog/post/d3c3bee6-e340-412c-8251-d30013d62020/change/ HTTP/1.1" 500 493604
+INFO 2026-01-12 21:04:05,424 basehttp "GET /admin/ HTTP/1.1" 200 14030
+ERROR 2026-01-12 21:04:08,730 log Internal Server Error: /admin/blog/post/d3c3bee6-e340-412c-8251-d30013d62020/change/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Users\ASUS\AppData\Local\Python\pythoncore-3.14-64\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-01-12 21:04:08,738 basehttp "GET /admin/blog/post/d3c3bee6-e340-412c-8251-d30013d62020/change/ HTTP/1.1" 500 493604
+INFO 2026-01-12 21:04:09,702 basehttp "GET /admin/ HTTP/1.1" 200 14030
+ERROR 2026-01-12 21:04:15,886 log Internal Server Error: /admin/blog/post/6b32ae2c-3490-4368-a484-f244b3d65070/change/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Users\ASUS\AppData\Local\Python\pythoncore-3.14-64\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-01-12 21:04:15,894 basehttp "GET /admin/blog/post/6b32ae2c-3490-4368-a484-f244b3d65070/change/ HTTP/1.1" 500 493604
+INFO 2026-01-12 21:04:17,286 basehttp "GET /admin/ HTTP/1.1" 200 14030
+ERROR 2026-01-12 21:04:18,894 log Internal Server Error: /admin/blog/post/6b32ae2c-3490-4368-a484-f244b3d65070/change/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Users\ASUS\AppData\Local\Python\pythoncore-3.14-64\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-01-12 21:04:18,905 basehttp "GET /admin/blog/post/6b32ae2c-3490-4368-a484-f244b3d65070/change/ HTTP/1.1" 500 493604
+INFO 2026-01-12 21:04:19,959 basehttp "GET /admin/ HTTP/1.1" 200 14030
+ERROR 2026-01-12 21:04:30,539 log Internal Server Error: /admin/blog/post/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Users\ASUS\AppData\Local\Python\pythoncore-3.14-64\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-01-12 21:04:30,554 basehttp "GET /admin/blog/post/ HTTP/1.1" 500 461631
+INFO 2026-01-12 21:04:48,839 basehttp "GET /admin/ HTTP/1.1" 200 14030
+ERROR 2026-01-12 21:04:51,255 log Internal Server Error: /admin/blog/category/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Users\ASUS\AppData\Local\Python\pythoncore-3.14-64\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-01-12 21:04:51,266 basehttp "GET /admin/blog/category/ HTTP/1.1" 500 461679
+INFO 2026-01-12 21:05:15,709 basehttp "GET /admin/ HTTP/1.1" 200 14030
+ERROR 2026-01-12 21:05:18,288 log Internal Server Error: /admin/blog/category/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Users\ASUS\AppData\Local\Python\pythoncore-3.14-64\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\ASUS\Downloads\vs code\.vscode\Coffee'n me\.venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-01-12 21:05:18,298 basehttp "GET /admin/blog/category/ HTTP/1.1" 500 461679
+INFO 2026-01-12 21:07:56,498 autoreload Watching for file changes with StatReloader
+INFO 2026-01-12 21:08:13,157 log "GET /admin/blog/category/ HTTP/1.1" 200 15136
+INFO 2026-01-12 21:08:15,016 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-01-12 21:08:15,281 log "GET /static/admin/css/responsive.css HTTP/1.1" 200 16273
+INFO 2026-01-12 21:08:15,286 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2026-01-12 21:08:15,299 log "GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+INFO 2026-01-12 21:08:15,303 log "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2026-01-12 21:08:15,851 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-01-12 21:08:15,852 log "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-01-12 21:08:15,862 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:08:15,973 log "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2026-01-12 21:08:15,990 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-01-12 21:08:16,018 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2026-01-12 21:08:16,178 log "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2026-01-12 21:08:16,225 log "GET /static/admin/img/search.svg HTTP/1.1" 200 607
+INFO 2026-01-12 21:08:16,304 log "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-01-12 21:08:16,981 log "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2026-01-12 21:08:16,990 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-01-12 21:08:17,109 log "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2026-01-12 21:08:17,130 log "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-01-12 21:08:17,245 log "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+INFO 2026-01-12 21:08:17,328 log "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+INFO 2026-01-12 21:08:17,356 log "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761
+INFO 2026-01-12 21:08:23,946 log "GET /admin/blog/category/ HTTP/1.1" 200 15136
+INFO 2026-01-12 21:08:23,963 log "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:23,968 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:23,989 log "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:23,996 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:24,005 log "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:24,010 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:24,014 log "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:24,015 log "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:24,025 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:08:24,033 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:25,715 log "GET /admin/blog/comment/ HTTP/1.1" 200 14740
+INFO 2026-01-12 21:08:25,731 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:25,741 log "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:25,755 log "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:25,761 log "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:25,770 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:25,779 log "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:25,786 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:08:25,816 log "GET /static/admin/css/forms.css HTTP/1.1" 200 8788
+INFO 2026-01-12 21:08:25,874 log "GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+INFO 2026-01-12 21:08:25,941 log "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+INFO 2026-01-12 21:08:28,028 log "GET /admin/blog/like/ HTTP/1.1" 200 13975
+INFO 2026-01-12 21:08:28,061 log "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:28,066 log "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:28,067 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:08:29,545 log "GET /admin/blog/post/ HTTP/1.1" 200 22893
+INFO 2026-01-12 21:08:29,593 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:08:36,771 log "GET /admin/blog/post/d3c3bee6-e340-412c-8251-d30013d62020/change/ HTTP/1.1" 200 50905
+INFO 2026-01-12 21:08:36,795 log "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,835 log "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,842 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,843 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,849 log "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,858 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,862 log "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,871 log "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,882 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,882 log "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,892 log "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,899 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:08:36,899 log "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,905 log "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,932 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,960 log "GET /media/blog_images/2025/12/Horizontal_One_Piece_Wallpaper.jpeg HTTP/1.1" 200 38542
+INFO 2026-01-12 21:08:36,966 log "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+INFO 2026-01-12 21:08:36,990 log "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:36,996 log "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:37,043 log "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2026-01-12 21:08:37,066 log "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2026-01-12 21:08:37,109 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:37,135 log "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+INFO 2026-01-12 21:08:37,171 log "GET /summernote/editor/id_content/ HTTP/1.1" 200 7170
+INFO 2026-01-12 21:08:37,326 log "GET /static/summernote/django_summernote.css HTTP/1.1" 200 126
+INFO 2026-01-12 21:08:37,332 log "GET /static/summernote/jquery.iframe-transport.js HTTP/1.1" 200 10891
+INFO 2026-01-12 21:08:37,339 log "GET /static/summernote/summernote-bs4.min.css HTTP/1.1" 200 19513
+INFO 2026-01-12 21:08:37,344 log "GET /static/summernote/jquery.fileupload.js HTTP/1.1" 200 64780
+INFO 2026-01-12 21:08:37,347 log "GET /static/summernote/jquery.ui.widget.js HTTP/1.1" 200 22757
+INFO 2026-01-12 21:08:37,349 log "GET /static/summernote/summernote-bs4.min.js HTTP/1.1" 200 153033
+INFO 2026-01-12 21:08:37,363 log "GET /static/summernote/ResizeSensor.js HTTP/1.1" 200 7678
+INFO 2026-01-12 21:08:39,106 log "GET /static/summernote/lang/summernote-en-US.min.js?_=1768232318960 HTTP/1.1" 200 4607
+INFO 2026-01-12 21:08:39,447 log "GET /static/summernote/font/summernote.woff2 HTTP/1.1" 200 6948
+INFO 2026-01-12 21:08:55,083 log "GET /admin/authtoken/tokenproxy/ HTTP/1.1" 200 12908
+INFO 2026-01-12 21:08:55,101 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,104 log "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,123 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,132 log "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,145 log "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,146 log "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,153 log "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,171 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,175 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,176 log "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,181 log "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,185 log "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,186 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,188 log "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,195 log "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,224 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:08:55,228 log "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:00,911 log "GET /admin/blog/bookmark/ HTTP/1.1" 200 14011
+INFO 2026-01-12 21:09:00,954 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:09:02,590 log "GET /admin/blog/category/ HTTP/1.1" 200 15136
+INFO 2026-01-12 21:09:02,618 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:09:04,848 log "GET /admin/blog/comment/ HTTP/1.1" 200 14740
+INFO 2026-01-12 21:09:04,874 log "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:04,884 log "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:04,892 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:09:07,279 log "GET /admin/blog/like/ HTTP/1.1" 200 13975
+INFO 2026-01-12 21:09:07,327 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:09:08,623 log "GET /admin/blog/post/ HTTP/1.1" 200 22893
+INFO 2026-01-12 21:09:08,638 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,640 log "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,669 log "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,679 log "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,681 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,685 log "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,696 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,697 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,700 log "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,700 log "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,707 log "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,711 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,712 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-12 21:09:08,716 log "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,726 log "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,729 log "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,745 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:08,753 log "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2026-01-12 21:09:10,040 log "GET /admin/blog/tag/ HTTP/1.1" 200 12790
+INFO 2026-01-12 21:09:10,079 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
