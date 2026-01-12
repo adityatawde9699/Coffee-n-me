@@ -19,6 +19,7 @@ urlpatterns = [
     path('posts/slug/<slug:slug>/', views.post_by_slug, name='post_by_slug'),
     
     # User-specific endpoints
+    path('me/', views.current_user, name='current_user'),
     path('user/bookmarks/', views.user_bookmarks, name='user_bookmarks'),
     path('user/liked-posts/', views.user_liked_posts, name='user_liked_posts'),
 ]

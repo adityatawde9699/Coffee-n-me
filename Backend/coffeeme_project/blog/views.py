@@ -277,6 +277,27 @@ def post_by_slug(request, slug):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def current_user(request):
+    """
+    Get the currently authenticated user's profile.
+    Used by frontend to validate token and fetch user data.
+    """
+    user = request.user
+    return Response({
+        'id': user.id,
+        'username': user.username,
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'is_staff': user.is_staff,
+        'is_superuser': user.is_superuser,
+        'date_joined': user.date_joined.isoformat(),
+        'posts_count': user.blog_posts.filter(status='published').count(),
+    })
+
+
+@api_view(['GET'])
 @permission_classes([IsAdminUser])
 def admin_dashboard(request):
     """

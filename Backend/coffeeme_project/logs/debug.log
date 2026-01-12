@@ -972,3 +972,8 @@ INFO 2025-12-03 21:37:42,383 basehttp "GET /api/home/ HTTP/1.1" 200 22563
 INFO 2025-12-03 21:37:42,754 basehttp "GET /media/blog_images/2025/12/jolly_roger_of_red_hair_pirates_lKElw5Q.jpg HTTP/1.1" 304 0
 INFO 2025-12-03 21:38:00,593 basehttp "GET /api/posts/? HTTP/1.1" 200 2804
 INFO 2025-12-03 21:38:08,261 basehttp "GET /api/posts/6b32ae2c-3490-4368-a484-f244b3d65070/ HTTP/1.1" 200 22091
+WARNING 2026-01-12 20:52:21,446 log Unauthorized: /api/comments/
+WARNING 2026-01-12 20:52:29,181 log Unauthorized: /api/posts/c0983b26-1b55-4869-abac-5b5dbf7d2541/like/
+WARNING 2026-01-12 20:52:33,072 log Not Found: /api/posts/slug/nonexistent-slug/
+WARNING 2026-01-12 20:52:35,025 log Unauthorized: /api/posts/
+WARNING 2026-01-12 20:52:38,893 log Bad Request: /api/search/
