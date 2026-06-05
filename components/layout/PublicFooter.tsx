@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Coffee, Globe, X, ArrowUpRight, Rss } from "lucide-react";
+import { Coffee, Globe, X, ArrowUpRight } from "lucide-react";
 
 export function PublicFooter() {
   const currentYear = new Date().getFullYear();

@@ -15,35 +15,47 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
   }
 
-  // Fetch all published posts
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    select: { slug: true, updatedAt: true },
-  });
+  try {
+    // Fetch all published posts
+    const posts = await prisma.post.findMany({
+      where: { published: true },
+      select: { slug: true, updatedAt: true },
+    });
 
-  const postUrls = posts.map((post) => ({
-    url: `${baseUrl}/article/${post.slug}`,
-    lastModified: post.updatedAt,
-  }));
+    const postUrls = posts.map((post) => ({
+      url: `${baseUrl}/article/${post.slug}`,
+      lastModified: post.updatedAt,
+    }));
 
-  // Fetch all categories
-  const categories = await prisma.category.findMany({
-    select: { slug: true },
-  });
+    // Fetch all categories
+    const categories = await prisma.category.findMany({
+      select: { slug: true },
+    });
 
-  const categoryUrls = categories.map((category) => ({
-    url: `${baseUrl}/category/${category.slug}`,
-    lastModified: new Date(),
-  }));
-
-  return [
-    {
-      url: baseUrl,
+    const categoryUrls = categories.map((category) => ({
+      url: `${baseUrl}/category/${category.slug}`,
       lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    ...postUrls,
-    ...categoryUrls,
-  ];
+    }));
+
+    return [
+      {
+        url: baseUrl,
+        lastModified: new Date(),
+        changeFrequency: "daily",
+        priority: 1,
+      },
+      ...postUrls,
+      ...categoryUrls,
+    ];
+  } catch {
+    // If DB is offline during build, return basic sitemap gracefully
+    return [
+      {
+        url: baseUrl,
+        lastModified: new Date(),
+        changeFrequency: "daily",
+        priority: 1,
+      },
+    ];
+  }
 }
