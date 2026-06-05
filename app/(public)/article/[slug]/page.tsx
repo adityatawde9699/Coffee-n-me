@@ -1,0 +1,120 @@
+import { getPostBySlug } from "@/lib/db/queries/post";
+import { notFound } from "next/navigation";
+import { format } from "date-fns";
+import { ReadingProgress } from "@/components/article/ReadingProgress";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import Link from "next/link";
+import { Clock } from "lucide-react";
+import { Metadata } from "next";
+
+interface ArticlePageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post) return {};
+
+  return {
+    title: post.title,
+    description: post.excerpt || undefined,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || undefined,
+      type: "article",
+      publishedTime: post.publishedAt?.toISOString(),
+      authors: [post.author.name || "Editorial Team"],
+      images: post.mainImage ? [post.mainImage] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || undefined,
+      images: post.mainImage ? [post.mainImage] : undefined,
+    },
+  };
+}
+
+export const dynamic = "force-dynamic";
+
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  return (
+    <>
+      <ArticleJsonLd post={post} />
+      <ReadingProgress />
+      <article className="pb-20">
+        <header className="py-20 bg-muted/20 border-b mb-16">
+          <div className="prose-container">
+            <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+              {post.category && (
+                <Link href={`/category/${post.category.slug}`} className="hover:text-primary transition-colors">
+                  {post.category.name}
+                </Link>
+              )}
+              {post.category && <span>•</span>}
+              <span>{post.publishedAt ? format(post.publishedAt, "MMMM d, yyyy") : "Draft"}</span>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-heading tracking-tight mb-8 leading-tight">
+              {post.title}
+            </h1>
+
+            {post.excerpt && (
+              <p className="text-xl md:text-2xl text-muted-foreground font-serif italic mb-10 leading-relaxed">
+                {post.excerpt}
+              </p>
+            )}
+
+            <div className="flex items-center justify-between py-6 border-t border-b">
+              <div className="flex items-center gap-3">
+                <div className="flex flex-col">
+                  <span className="font-medium">{post.author.name}</span>
+                  <span className="text-sm text-muted-foreground italic">Author</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Clock className="w-4 h-4" />
+                <span>{post.readingTime ?? 0} min read</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="prose-container font-serif text-lg md:text-xl leading-relaxed space-y-8">
+          {/* Using a simple div for content for now. Phase 3 will introduce richer rendering. */}
+          <div
+            dangerouslySetInnerHTML={{ __html: post.content }}
+            className="prose prose-neutral prose-lg max-w-none dark:prose-invert"
+          />
+        </div>
+
+        {post.tags.length > 0 && (
+          <footer className="prose-container mt-20 pt-10 border-t">
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <Link
+                  key={tag.id}
+                  href={`/tag/${tag.slug}`}
+                  className="px-3 py-1 bg-muted hover:bg-muted/80 text-sm rounded-full transition-colors"
+                >
+                  #{tag.name}
+                </Link>
+              ))}
+            </div>
+          </footer>
+        )}
+      </article>
+    </>
+  );
+}
