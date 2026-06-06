@@ -8,7 +8,21 @@ import { Suspense } from "react";
 
 function SignInContent() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/";
+  // Sanitize callbackUrl — reject localhost or external origins, keep only relative paths
+  const rawCallback = searchParams.get("callbackUrl") || "/";
+  const callbackUrl = (() => {
+    try {
+      const url = new URL(rawCallback);
+      // Only allow same-origin redirects (production domain)
+      if (typeof window !== "undefined" && url.origin === window.location.origin) {
+        return url.pathname + url.search;
+      }
+      return "/";
+    } catch {
+      // rawCallback is already a relative path (e.g. "/dashboard") — safe to use
+      return rawCallback.startsWith("/") ? rawCallback : "/";
+    }
+  })();
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
