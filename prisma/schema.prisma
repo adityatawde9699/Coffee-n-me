@@ -93,6 +93,12 @@ model Post {
   @@index([authorId])
 }
 
+model Subscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
 model Category {
   id    String @id @default(uuid())
   name  String @unique

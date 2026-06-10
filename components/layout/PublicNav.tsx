@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "@/lib/auth/auth";
 import { buttonVariants } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 export async function PublicNav() {
   const session = await auth();
@@ -17,9 +18,11 @@ export async function PublicNav() {
               <Link href="/category/essays" className="hover:text-foreground transition-colors">Essays</Link>
               <Link href="/category/tech" className="hover:text-foreground transition-colors">Tech</Link>
               <Link href="/category/culture" className="hover:text-foreground transition-colors">Culture</Link>
+              <Link href="/brews" className="hover:text-foreground transition-colors">Brew Guide</Link>
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             {session ? (
               <Link
                 href="/dashboard"
@@ -29,7 +32,7 @@ export async function PublicNav() {
               </Link>
             ) : (
               <Link
-                href="/api/auth/signin"
+                href="/auth/signin"
                 className={buttonVariants({ variant: "outline", size: "sm" })}
               >
                 Sign In

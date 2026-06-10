@@ -1,5 +1,6 @@
 import { getFeaturedPost, getLatestPosts } from "@/lib/db/queries/post";
 import { ArticleCard } from "@/components/article/ArticleCard";
+import { NewsletterForm } from "@/components/home/NewsletterForm";
 import Link from "next/link";
 import { Coffee, ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
@@ -148,16 +149,7 @@ export default async function HomePage() {
               </p>
             </div>
 
-            <div className="flex w-full md:w-auto gap-3">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 md:w-72 px-5 py-3 rounded-full bg-background/50 border border-border/50 text-sm font-heading placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all duration-300"
-              />
-              <button className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-medium text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap">
-                Subscribe
-              </button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
       </section>
