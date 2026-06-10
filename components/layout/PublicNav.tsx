@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth } from "@/lib/auth/auth";
 import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { MobileMenu } from "@/components/layout/MobileMenu";
 
 export async function PublicNav() {
   const session = await auth();
@@ -21,7 +22,7 @@ export async function PublicNav() {
               <Link href="/brews" className="hover:text-foreground transition-colors">Brew Guide</Link>
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <ThemeToggle />
             {session ? (
               <Link
@@ -38,6 +39,7 @@ export async function PublicNav() {
                 Sign In
               </Link>
             )}
+            <MobileMenu />
           </div>
         </div>
       </div>

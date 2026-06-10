@@ -27,7 +27,7 @@ export function ArticleCard({ post, featured = false }: ArticleCardProps) {
         {/* Gradient accent border top */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary opacity-60" />
 
-        <div className="p-8 md:p-10 flex flex-col gap-5">
+        <div className="p-6 sm:p-8 md:p-10 flex flex-col gap-5">
           <div className="flex items-center gap-3">
             {post.category && (
               <Link
@@ -43,7 +43,7 @@ export function ArticleCard({ post, featured = false }: ArticleCardProps) {
           </div>
 
           <Link href={`/article/${post.slug}`} className="flex flex-col gap-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-tight group-hover:text-primary transition-colors duration-300">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-tight group-hover:text-primary transition-colors duration-300">
               {post.title}
             </h2>
             {post.excerpt && (

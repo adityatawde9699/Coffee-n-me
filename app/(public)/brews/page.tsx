@@ -80,7 +80,7 @@ export default function BrewsPage() {
   return (
     <div className="pb-24">
       {/* Header */}
-      <section className="relative overflow-hidden py-20 md:py-28">
+      <section className="relative overflow-hidden py-14 sm:py-20 md:py-28">
         <div className="absolute top-10 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse-soft" />
         <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "1.5s" }} />
 
@@ -113,7 +113,7 @@ export default function BrewsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children">
           {brews.map(({ icon: Icon, name, tagline, time, character, desc }) => (
-            <article key={name} className="glass-card rounded-2xl p-8 flex flex-col gap-4 group hover:border-primary/30 transition-colors duration-300">
+            <article key={name} className="glass-card rounded-2xl p-6 sm:p-8 flex flex-col gap-4 group hover:border-primary/30 transition-colors duration-300">
               <div className="flex items-start justify-between">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <Icon className="w-6 h-6 text-primary" />

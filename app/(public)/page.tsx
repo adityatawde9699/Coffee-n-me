@@ -16,7 +16,7 @@ export default async function HomePage() {
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden py-24 md:py-32 lg:py-40">
+      <section className="relative overflow-hidden py-16 sm:py-24 md:py-32 lg:py-40">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -43,7 +43,7 @@ export default async function HomePage() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1] mb-6">
               Where words{" "}
               <span className="gradient-text">brew slowly</span>
               {" "}and ideas are served warm.
@@ -134,7 +134,7 @@ export default async function HomePage() {
           NEWSLETTER CTA
           ═══════════════════════════════════════════ */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24">
-        <div className="relative overflow-hidden rounded-2xl glass-card p-10 md:p-16">
+        <div className="relative overflow-hidden rounded-2xl glass-card p-6 sm:p-10 md:p-16">
           {/* Decorative gradient blobs */}
           <div className="absolute -top-20 -right-20 w-60 h-60 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accent/10 rounded-full blur-3xl" />

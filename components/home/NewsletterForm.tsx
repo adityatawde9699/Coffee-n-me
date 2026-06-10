@@ -24,7 +24,7 @@ export function NewsletterForm() {
 
   return (
     <div className="flex flex-col w-full md:w-auto gap-2">
-      <form onSubmit={handleSubmit} className="flex w-full md:w-auto gap-3">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row w-full md:w-auto gap-3">
         <input
           type="email"
           required
@@ -37,7 +37,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-medium text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap disabled:opacity-60 inline-flex items-center gap-2"
+          className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-medium text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap disabled:opacity-60 inline-flex items-center justify-center gap-2"
         >
           {isPending ? (
             <Loader2 className="w-4 h-4 animate-spin" />

@@ -112,6 +112,11 @@
     background-clip: text;
   }
 
+  /* Lift cards gently on hover */
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20;
+  }
+
   /* Gradient top border accent */
   .warm-divider {
     height: 2px;
