@@ -70,6 +70,23 @@
   h6 {
     @apply font-heading tracking-tight;
   }
+
+  /* Visible keyboard focus for every interactive element */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  /* Skip-to-content link — hidden until focused */
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-md bg-primary px-4 py-2 text-sm font-heading font-medium text-primary-foreground shadow-lg;
+  }
 }
 
 @layer components {

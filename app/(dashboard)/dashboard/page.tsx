@@ -1,15 +1,42 @@
 import { auth } from "@/lib/auth/auth";
+import prisma from "@/lib/db/prisma";
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Users, Eye, TrendingUp } from "lucide-react";
+import { FileText, Users, CheckCircle2, PencilLine } from "lucide-react";
+import { format } from "date-fns";
+
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   const session = await auth();
+  const isAdmin = session?.user?.role === "ADMIN";
+  const authorScope = isAdmin ? {} : { authorId: session?.user?.id };
+
+  const [total, published, drafts, subscribers, recentDrafts, recentPublished] =
+    await Promise.all([
+      prisma.post.count({ where: authorScope }),
+      prisma.post.count({ where: { ...authorScope, published: true } }),
+      prisma.post.count({ where: { ...authorScope, published: false } }),
+      prisma.subscriber.count(),
+      prisma.post.findMany({
+        where: { ...authorScope, published: false },
+        orderBy: { updatedAt: "desc" },
+        take: 5,
+        select: { id: true, title: true, updatedAt: true },
+      }),
+      prisma.post.findMany({
+        where: { ...authorScope, published: true },
+        orderBy: { publishedAt: "desc" },
+        take: 5,
+        select: { id: true, title: true, slug: true, publishedAt: true },
+      }),
+    ]);
 
   const stats = [
-    { name: "Total Posts", value: "0", icon: FileText, change: "+0", changeType: "increase" },
-    { name: "Total Views", value: "0", icon: Eye, change: "+0", changeType: "increase" },
-    { name: "Subscribers", value: "0", icon: Users, change: "+0", changeType: "increase" },
-    { name: "Engagement Rate", value: "0%", icon: TrendingUp, change: "+0%", changeType: "increase" },
+    { name: "Total Posts", value: total, icon: FileText },
+    { name: "Published", value: published, icon: CheckCircle2 },
+    { name: "Drafts", value: drafts, icon: PencilLine },
+    { name: "Subscribers", value: subscribers, icon: Users },
   ];
 
   return (
@@ -34,38 +61,75 @@ export default async function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{item.value}</div>
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-emerald-500 font-medium">{item.change}</span> from last month
-              </p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <Card className="col-span-1">
+        <Card>
           <CardHeader>
             <CardTitle className="font-heading">Recent Drafts</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="py-10 text-center border-2 border-dashed rounded-lg">
-              <p className="text-sm text-muted-foreground italic font-serif">
-                No active drafts. Start a new story!
-              </p>
-            </div>
+            {recentDrafts.length > 0 ? (
+              <ul className="divide-y">
+                {recentDrafts.map((post) => (
+                  <li key={post.id}>
+                    <Link
+                      href={`/dashboard/editor/${post.id}`}
+                      className="flex items-center justify-between py-3 group"
+                    >
+                      <span className="font-medium group-hover:text-primary transition-colors line-clamp-1">
+                        {post.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground shrink-0 ml-4">
+                        {format(post.updatedAt, "MMM d")}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="py-10 text-center border-2 border-dashed rounded-lg">
+                <p className="text-sm text-muted-foreground italic font-serif">
+                  No active drafts. Start a new story!
+                </p>
+              </div>
+            )}
           </CardContent>
         </Card>
-        
-        <Card className="col-span-1">
+
+        <Card>
           <CardHeader>
-            <CardTitle className="font-heading">Popular Articles</CardTitle>
+            <CardTitle className="font-heading">Recently Published</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="py-10 text-center border-2 border-dashed rounded-lg">
-              <p className="text-sm text-muted-foreground italic font-serif">
-                Articles will appear here once published.
-              </p>
-            </div>
+            {recentPublished.length > 0 ? (
+              <ul className="divide-y">
+                {recentPublished.map((post) => (
+                  <li key={post.id}>
+                    <Link
+                      href={`/article/${post.slug}`}
+                      className="flex items-center justify-between py-3 group"
+                    >
+                      <span className="font-medium group-hover:text-primary transition-colors line-clamp-1">
+                        {post.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground shrink-0 ml-4">
+                        {post.publishedAt ? format(post.publishedAt, "MMM d") : ""}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="py-10 text-center border-2 border-dashed rounded-lg">
+                <p className="text-sm text-muted-foreground italic font-serif">
+                  Articles will appear here once published.
+                </p>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

@@ -14,7 +14,9 @@ export async function subscribeToNewsletter(
 ): Promise<SubscribeResult> {
   const normalized = email.trim().toLowerCase();
 
-  if (!EMAIL_RE.test(normalized)) {
+  // RFC 5321 caps an email address at 254 chars; reject anything larger to
+  // avoid storing abusive payloads.
+  if (normalized.length > 254 || !EMAIL_RE.test(normalized)) {
     return { success: false, message: "Please enter a valid email address." };
   }
 

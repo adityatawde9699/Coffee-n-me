@@ -6,6 +6,9 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Plus, Edit2, Eye } from "lucide-react";
 import { format } from "date-fns";
 import { createDraft } from "@/lib/actions/post";
+import { cn } from "@/lib/utils";
+
+export const dynamic = "force-dynamic";
 
 export default async function PostsPage() {
   const session = await auth();
@@ -113,9 +116,4 @@ export default async function PostsPage() {
       </div>
     </div>
   );
-}
-
-// Inline helper for className joining since I can't use cn from lib/utils in a server component easily without importing it
-function cn(...classes: (string | boolean | undefined)[]) {
-  return classes.filter(Boolean).join(" ");
 }

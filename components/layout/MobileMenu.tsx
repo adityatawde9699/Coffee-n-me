@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { SearchBar } from "@/components/layout/SearchBar";
 
 const links = [
   { href: "/category/essays", label: "Essays" },
@@ -45,6 +46,9 @@ export function MobileMenu() {
       {open && (
         <div className="fixed inset-x-0 top-16 bottom-0 z-50 bg-background/95 backdrop-blur-md animate-fade-in">
           <nav className="flex flex-col px-6 py-8 gap-1">
+            <div className="mb-4">
+              <SearchBar />
+            </div>
             {links.map((link, i) => (
               <Link
                 key={link.href}

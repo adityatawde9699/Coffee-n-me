@@ -5,6 +5,7 @@ import { Coffee, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { absoluteUrl } from "@/lib/site";
 
 interface CategoryPageProps {
   params: Promise<{
@@ -25,10 +26,21 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   return {
     title: displayName,
     description: `Explore ${displayName} stories on Coffee'n me.`,
+    alternates: { canonical: absoluteUrl(`/category/${slug}`) },
   };
 }
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  try {
+    const prisma = (await import("@/lib/db/prisma")).default;
+    const categories = await prisma.category.findMany({ select: { slug: true } });
+    return categories.map((c) => ({ slug: c.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { slug } = await params;

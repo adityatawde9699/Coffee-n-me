@@ -1,3 +1,5 @@
+import { absoluteUrl, siteConfig } from "@/lib/site";
+
 interface ArticleJsonLdProps {
   post: {
     title: string;
@@ -6,7 +8,9 @@ interface ArticleJsonLdProps {
     publishedAt: Date | null;
     updatedAt: Date;
     mainImage: string | null;
+    category: { name: string; slug: string } | null;
     author: {
+      id: string;
       name: string | null;
       image: string | null;
     };
@@ -14,33 +18,35 @@ interface ArticleJsonLdProps {
 }
 
 export function ArticleJsonLd({ post }: ArticleJsonLdProps) {
-  const url = `${process.env.NEXT_PUBLIC_APP_URL || "https://coffeenme.com"}/article/${post.slug}`;
-  
+  const url = absoluteUrl(`/article/${post.slug}`);
+  const image = post.mainImage || absoluteUrl(`/article/${post.slug}/opengraph-image`);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": post.title,
-    "description": post.excerpt,
-    "image": post.mainImage || "https://coffeenme.com/og-default.jpg",
-    "datePublished": post.publishedAt?.toISOString(),
-    "dateModified": post.updatedAt.toISOString(),
-    "author": {
+    headline: post.title,
+    description: post.excerpt ?? undefined,
+    image,
+    datePublished: post.publishedAt?.toISOString(),
+    dateModified: post.updatedAt.toISOString(),
+    author: {
       "@type": "Person",
-      "name": post.author.name || "Editorial Team",
-      "url": `${process.env.NEXT_PUBLIC_APP_URL || "https://coffeenme.com"}/author/${post.author.name}`,
+      name: post.author.name || "Editorial Team",
+      url: absoluteUrl(`/author/${post.author.id}`),
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Coffee'n me",
-      "logo": {
+      name: siteConfig.name,
+      logo: {
         "@type": "ImageObject",
-        "url": "https://coffeenme.com/logo.png"
-      }
+        url: absoluteUrl("/logo.png"),
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": url
-    }
+      "@id": url,
+    },
+    ...(post.category && { articleSection: post.category.name }),
   };
 
   return (

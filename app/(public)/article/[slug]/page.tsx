@@ -1,8 +1,12 @@
-import { getPostBySlug } from "@/lib/db/queries/post";
+import { getPostBySlug, getRelatedPosts } from "@/lib/db/queries/post";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { ReadingProgress } from "@/components/article/ReadingProgress";
+import { ArticleCard } from "@/components/article/ArticleCard";
 import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { sanitizeArticleHtml } from "@/lib/sanitize";
+import { absoluteUrl } from "@/lib/site";
 import Link from "next/link";
 import { Clock } from "lucide-react";
 import { Metadata } from "next";
@@ -22,6 +26,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   return {
     title: post.title,
     description: post.excerpt || undefined,
+    alternates: {
+      canonical: absoluteUrl(`/article/${post.slug}`),
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt || undefined,
@@ -39,7 +46,24 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   };
 }
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+// Prerender the most recent published articles at build; the rest render
+// on-demand and are then ISR-cached (dynamicParams defaults to true).
+export async function generateStaticParams() {
+  try {
+    const prisma = (await import("@/lib/db/prisma")).default;
+    const posts = await prisma.post.findMany({
+      where: { published: true },
+      orderBy: { publishedAt: "desc" },
+      take: 50,
+      select: { slug: true },
+    });
+    return posts.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
@@ -49,9 +73,20 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound();
   }
 
+  const relatedPosts = await getRelatedPosts(post.id, post.categoryId);
+
   return (
     <>
       <ArticleJsonLd post={post} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          ...(post.category
+            ? [{ name: post.category.name, path: `/category/${post.category.slug}` }]
+            : []),
+          { name: post.title },
+        ]}
+      />
       <ReadingProgress />
       <article className="pb-20">
         <header className="py-20 bg-muted/20 border-b mb-16">
@@ -92,9 +127,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </header>
 
         <div className="prose-container font-serif text-lg md:text-xl leading-relaxed space-y-8">
-          {/* Using a simple div for content for now. Phase 3 will introduce richer rendering. */}
           <div
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: sanitizeArticleHtml(post.content) }}
             className="prose prose-neutral prose-lg max-w-none dark:prose-invert"
           />
         </div>
@@ -115,6 +149,22 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </footer>
         )}
       </article>
+
+      {relatedPosts.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 pb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-8 h-[2px] bg-primary rounded-full" />
+            <h2 className="text-xl font-heading font-semibold uppercase tracking-wider">
+              Related stories
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+            {relatedPosts.map((related) => (
+              <ArticleCard key={related.id} post={related} />
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }

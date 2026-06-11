@@ -1,15 +1,30 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { TiptapEditor } from "@/components/editor/TiptapEditor";
+import dynamic from "next/dynamic";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { updatePost, publishPost } from "@/lib/actions/post";
 import { useRouter } from "next/navigation";
-import { Save, Send, ArrowLeft } from "lucide-react";
+import { Save, Send, ArrowLeft, Loader2 } from "lucide-react";
 import Link from "next/link";
+
+// TipTap (~130 kB) is client-only and only needed inside the editor — load it
+// lazily so it never ships in the initial bundle for any other route.
+const TiptapEditor = dynamic(
+  () => import("@/components/editor/TiptapEditor").then((m) => m.TiptapEditor),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center gap-2 py-10 text-muted-foreground">
+        <Loader2 className="h-4 w-4 animate-spin" />
+        <span className="text-sm">Loading editor…</span>
+      </div>
+    ),
+  }
+);
 
 interface EditorInterfaceProps {
   post: {

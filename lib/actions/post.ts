@@ -2,8 +2,11 @@
 
 import { auth } from "@/lib/auth/auth";
 import prisma from "@/lib/db/prisma";
-import { PostInput } from "@/lib/validation/post";
-import { revalidatePath } from "next/cache";
+import { PostInput, postSchema } from "@/lib/validation/post";
+import { estimateReadingTime } from "@/lib/utils/reading-time";
+import { sanitizeArticleHtml } from "@/lib/sanitize";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { Prisma } from "@prisma/client";
 
 export async function createDraft() {
   const session = await auth();
@@ -45,11 +48,36 @@ export async function updatePost(id: string, data: Partial<PostInput>) {
     throw new Error("Unauthorized");
   }
 
-  const post = await prisma.post.update({
-    where: { id },
-    data,
-  });
+  // Validate + whitelist incoming fields (never trust the client payload).
+  const parsed = postSchema.partial().safeParse(data);
+  if (!parsed.success) {
+    throw new Error(parsed.error.issues[0]?.message ?? "Invalid post data");
+  }
 
+  // Unchecked variant lets us set scalar foreign keys (categoryId) directly.
+  const updateData: Prisma.PostUncheckedUpdateInput = { ...parsed.data };
+
+  // Sanitize + recompute reading time whenever content changes.
+  if (typeof parsed.data.content === "string") {
+    const clean = sanitizeArticleHtml(parsed.data.content);
+    updateData.content = clean;
+    updateData.readingTime = estimateReadingTime(clean);
+  }
+
+  let post;
+  try {
+    post = await prisma.post.update({
+      where: { id },
+      data: updateData,
+    });
+  } catch (err) {
+    if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === "P2002") {
+      throw new Error("That slug is already taken. Please choose another.");
+    }
+    throw err;
+  }
+
+  revalidateTag("posts");
   revalidatePath("/dashboard/posts");
   revalidatePath(`/article/${post.slug}`);
   return post;
@@ -84,9 +112,11 @@ export async function publishPost(id: string) {
     data: {
       published: true,
       publishedAt: new Date(),
+      readingTime: estimateReadingTime(existingPost.content),
     },
   });
 
+  revalidateTag("posts");
   revalidatePath("/");
   revalidatePath("/dashboard/posts");
   revalidatePath(`/article/${post.slug}`);
@@ -117,5 +147,6 @@ export async function deletePost(id: string) {
     where: { id },
   });
 
+  revalidateTag("posts");
   revalidatePath("/dashboard/posts");
 }

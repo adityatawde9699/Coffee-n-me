@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { auth } from "@/lib/auth/auth";
-import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { MobileMenu } from "@/components/layout/MobileMenu";
+import { SearchBar } from "@/components/layout/SearchBar";
+import { AuthNavButton } from "@/components/layout/AuthNavButton";
 
-export async function PublicNav() {
-  const session = await auth();
-
+export function PublicNav() {
   return (
     <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,22 +21,9 @@ export async function PublicNav() {
             </div>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
+            <SearchBar className="hidden lg:flex w-52" />
             <ThemeToggle />
-            {session ? (
-              <Link
-                href="/dashboard"
-                className={buttonVariants({ variant: "ghost", size: "sm" })}
-              >
-                Dashboard
-              </Link>
-            ) : (
-              <Link
-                href="/auth/signin"
-                className={buttonVariants({ variant: "outline", size: "sm" })}
-              >
-                Sign In
-              </Link>
-            )}
+            <AuthNavButton />
             <MobileMenu />
           </div>
         </div>

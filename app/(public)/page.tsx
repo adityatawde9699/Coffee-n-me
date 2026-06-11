@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Coffee, ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function HomePage() {
   const featuredPost = await getFeaturedPost();
@@ -23,6 +23,7 @@ export default async function HomePage() {
             src="/hero-bg.png"
             alt=""
             fill
+            sizes="100vw"
             className="object-cover opacity-30"
             priority
           />

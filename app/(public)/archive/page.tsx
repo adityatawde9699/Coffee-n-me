@@ -1,8 +1,8 @@
-import { getLatestPosts } from "@/lib/db/queries/post";
+import { getPublishedPosts } from "@/lib/db/queries/post";
 import { getCategories } from "@/lib/db/queries/category";
 import { ArticleCard } from "@/components/article/ArticleCard";
 import Link from "next/link";
-import { Coffee, Filter } from "lucide-react";
+import { Coffee, Filter, ChevronLeft, ChevronRight } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,11 +10,21 @@ export const metadata: Metadata = {
   description: "Browse all articles on Coffee'n me — essays, technology, culture and more.",
 };
 
-export const dynamic = "force-dynamic";
+// Reads `page` from searchParams → rendered dynamically, but the underlying
+// post queries are data-cached (unstable_cache, "posts" tag), so this does not
+// hit Postgres on every request.
+const PER_PAGE = 12;
 
-export default async function ArchivePage() {
-  const [posts, categories] = await Promise.all([
-    getLatestPosts(50),
+interface ArchivePageProps {
+  searchParams: Promise<{ page?: string }>;
+}
+
+export default async function ArchivePage({ searchParams }: ArchivePageProps) {
+  const { page: pageParam } = await searchParams;
+  const page = Math.max(1, Number(pageParam) || 1);
+
+  const [{ posts, totalPages }, categories] = await Promise.all([
+    getPublishedPosts({ page, perPage: PER_PAGE }),
     getCategories(),
   ]);
 
@@ -61,11 +71,56 @@ export default async function ArchivePage() {
 
       {/* Posts grid */}
       {posts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
-          {posts.map((post) => (
-            <ArticleCard key={post.id} post={post} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+            {posts.map((post) => (
+              <ArticleCard key={post.id} post={post} />
+            ))}
+          </div>
+
+          {totalPages > 1 && (
+            <nav
+              className="mt-16 flex items-center justify-center gap-4"
+              aria-label="Pagination"
+            >
+              {page > 1 ? (
+                <Link
+                  href={`/archive?page=${page - 1}`}
+                  rel="prev"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full glass-card text-sm font-heading hover:text-primary hover:border-primary/30 transition-all duration-300"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Previous
+                </Link>
+              ) : (
+                <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border/30 text-sm font-heading text-muted-foreground/40">
+                  <ChevronLeft className="w-4 h-4" />
+                  Previous
+                </span>
+              )}
+
+              <span className="text-sm text-muted-foreground" aria-current="page">
+                Page {page} of {totalPages}
+              </span>
+
+              {page < totalPages ? (
+                <Link
+                  href={`/archive?page=${page + 1}`}
+                  rel="next"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full glass-card text-sm font-heading hover:text-primary hover:border-primary/30 transition-all duration-300"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              ) : (
+                <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border/30 text-sm font-heading text-muted-foreground/40">
+                  Next
+                  <ChevronRight className="w-4 h-4" />
+                </span>
+              )}
+            </nav>
+          )}
+        </>
       ) : (
         <div className="py-32 text-center">
           <div className="inline-flex flex-col items-center gap-4">
