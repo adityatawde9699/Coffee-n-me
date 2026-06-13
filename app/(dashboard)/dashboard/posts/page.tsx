@@ -3,10 +3,11 @@ import { auth } from "@/lib/auth/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Plus, Edit2, Eye, Trash2 } from "lucide-react";
+import { Plus, Edit2, Eye } from "lucide-react";
 import { format } from "date-fns";
 import { createDraft, deletePost } from "@/lib/actions/post";
 import { cn } from "@/lib/utils";
+import { DeletePostButton } from "@/components/dashboard/DeletePostButton";
 
 export const dynamic = "force-dynamic";
 
@@ -109,18 +110,7 @@ export default async function PostsPage() {
                     </Link>
                     <form action={handleDelete}>
                       <input type="hidden" name="id" value={post.id} />
-                      <button
-                        type="submit"
-                        aria-label={`Delete ${post.title}`}
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
-                        onClick={(e) => {
-                          if (!confirm(`Delete "${post.title}"? This cannot be undone.`)) {
-                            e.preventDefault();
-                          }
-                        }}
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                      <DeletePostButton title={post.title} />
                     </form>
                   </div>
                 </td>
