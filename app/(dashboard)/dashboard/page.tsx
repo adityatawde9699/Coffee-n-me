@@ -9,8 +9,37 @@ export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   const session = await auth();
-  const isAdmin = session?.user?.role === "ADMIN";
+  const role = session?.user?.role ?? "READER";
+  const isAdmin = role === "ADMIN";
   const authorScope = isAdmin ? {} : { authorId: session?.user?.id };
+
+  // READERs see a simplified view — no post stats or drafts
+  if (role === "READER") {
+    return (
+      <div className="space-y-8">
+        <div>
+          <h1 className="text-3xl font-heading tracking-tight mb-2">
+            Welcome, {session?.user?.name}
+          </h1>
+          <p className="text-muted-foreground font-serif italic">
+            You&apos;re signed in as a reader.
+          </p>
+        </div>
+        <div className="rounded-xl border bg-muted/20 p-8 max-w-md">
+          <h2 className="text-lg font-heading font-semibold mb-2">Want to write?</h2>
+          <p className="text-sm text-muted-foreground font-serif mb-4">
+            To create and publish stories, you need Writer access. Contact an admin to have your role upgraded.
+          </p>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+          >
+            ← Back to reading
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const [total, published, drafts, subscribers, recentDrafts, recentPublished] =
     await Promise.all([

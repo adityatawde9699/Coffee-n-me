@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { format } from "date-fns";
 import { Coffee, ArrowUpRight } from "lucide-react";
 
@@ -9,6 +10,7 @@ interface ArticleCardProps {
     excerpt: string | null;
     publishedAt: Date | null;
     readingTime: number | null;
+    mainImage?: string | null;
     author: {
       name: string | null;
     };
@@ -26,6 +28,20 @@ export function ArticleCard({ post, featured = false }: ArticleCardProps) {
       <article className="group relative glass-card rounded-2xl overflow-hidden card-hover">
         {/* Gradient accent border top */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary opacity-60" />
+
+        {/* Cover image */}
+        {post.mainImage && (
+          <div className="relative w-full aspect-[21/9] overflow-hidden">
+            <Image
+              src={post.mainImage}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 80vw"
+              className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
+          </div>
+        )}
 
         <div className="p-6 sm:p-8 md:p-10 flex flex-col gap-5">
           <div className="flex items-center gap-3">
@@ -75,8 +91,21 @@ export function ArticleCard({ post, featured = false }: ArticleCardProps) {
 
   return (
     <article className="group glass-card rounded-xl overflow-hidden card-hover flex flex-col">
-      {/* Subtle top accent */}
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      {/* Cover image */}
+      {post.mainImage ? (
+        <div className="relative w-full aspect-[16/9] overflow-hidden">
+          <Image
+            src={post.mainImage}
+            alt={post.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+          />
+        </div>
+      ) : (
+        /* Subtle top accent when no image */
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      )}
 
       <div className="p-6 flex flex-col gap-4 flex-1">
         <div className="flex items-center gap-2.5">

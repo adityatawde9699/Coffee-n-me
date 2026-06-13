@@ -150,3 +150,72 @@ export async function deletePost(id: string) {
   revalidateTag("posts");
   revalidatePath("/dashboard/posts");
 }
+
+export async function unpublishPost(id: string) {
+  const session = await auth();
+  if (!session) throw new Error("Unauthorized");
+
+  const existingPost = await prisma.post.findUnique({
+    where: { id },
+    select: { authorId: true },
+  });
+
+  if (!existingPost) throw new Error("Post not found");
+  if (existingPost.authorId !== session.user.id && session.user.role !== "ADMIN") {
+    throw new Error("Unauthorized");
+  }
+
+  const post = await prisma.post.update({
+    where: { id },
+    data: { published: false, publishedAt: null },
+  });
+
+  revalidateTag("posts");
+  revalidatePath("/");
+  revalidatePath("/dashboard/posts");
+  revalidatePath(`/article/${post.slug}`);
+  return post;
+}
+
+export async function setPostFeatured(id: string, featured: boolean) {
+  const session = await auth();
+  if (!session || session.user.role !== "ADMIN") {
+    throw new Error("Unauthorized — only admins can feature posts");
+  }
+
+  const post = await prisma.post.update({
+    where: { id },
+    data: { featured },
+  });
+
+  revalidateTag("posts");
+  revalidatePath("/");
+  return post;
+}
+
+export async function updatePostTags(postId: string, tagIds: string[]) {
+  const session = await auth();
+  if (!session) throw new Error("Unauthorized");
+
+  const existingPost = await prisma.post.findUnique({
+    where: { id: postId },
+    select: { authorId: true },
+  });
+  if (!existingPost) throw new Error("Post not found");
+  if (existingPost.authorId !== session.user.id && session.user.role !== "ADMIN") {
+    throw new Error("Unauthorized");
+  }
+
+  const post = await prisma.post.update({
+    where: { id: postId },
+    data: {
+      tags: {
+        set: tagIds.map((tagId) => ({ id: tagId })),
+      },
+    },
+  });
+
+  revalidateTag("posts");
+  return post;
+}
+

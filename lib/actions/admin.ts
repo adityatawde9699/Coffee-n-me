@@ -54,3 +54,32 @@ export async function updateUserRole(
   revalidateTag("users");
   revalidatePath("/dashboard/users");
 }
+
+// ─── Tag Management ──────────────────────────────────────────────────────────
+
+export async function createTag(formData: FormData) {
+  await requireAdmin();
+
+  const name = String(formData.get("name") ?? "").trim();
+  if (!name) throw new Error("Tag name is required");
+
+  const slug = slugify(name);
+  if (!slug) throw new Error("Tag name must contain letters or numbers");
+
+  const exists = await prisma.tag.findFirst({
+    where: { OR: [{ name }, { slug }] },
+  });
+  if (exists) throw new Error("A tag with that name already exists");
+
+  await prisma.tag.create({ data: { name, slug } });
+  revalidateTag("tags");
+  revalidatePath("/dashboard/tags");
+}
+
+export async function deleteTag(id: string) {
+  await requireAdmin();
+  await prisma.tag.delete({ where: { id } });
+  revalidateTag("tags");
+  revalidatePath("/dashboard/tags");
+}
+

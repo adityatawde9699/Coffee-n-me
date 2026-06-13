@@ -3,9 +3,9 @@ import { auth } from "@/lib/auth/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Plus, Edit2, Eye } from "lucide-react";
+import { Plus, Edit2, Eye, Trash2 } from "lucide-react";
 import { format } from "date-fns";
-import { createDraft } from "@/lib/actions/post";
+import { createDraft, deletePost } from "@/lib/actions/post";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -34,6 +34,12 @@ export default async function PostsPage() {
     "use server";
     const post = await createDraft();
     redirect(`/dashboard/editor/${post.id}`);
+  }
+
+  async function handleDelete(formData: FormData) {
+    "use server";
+    const id = String(formData.get("id"));
+    await deletePost(id);
   }
 
   return (
@@ -87,19 +93,36 @@ export default async function PostsPage() {
                 <td className="px-6 py-4 text-muted-foreground">
                   {format(post.updatedAt, "MMM d, yyyy")}
                 </td>
-                <td className="px-6 py-4 text-right space-x-2">
-                  <Link 
-                    href={post.published ? `/article/${post.slug}` : `/dashboard/editor/${post.id}`}
-                    className={buttonVariants({ variant: "ghost", size: "sm" })}
-                  >
-                    <Eye className="w-4 h-4" />
-                  </Link>
-                  <Link 
-                    href={`/dashboard/editor/${post.id}`}
-                    className={buttonVariants({ variant: "ghost", size: "sm" })}
-                  >
-                    <Edit2 className="w-4 h-4" />
-                  </Link>
+                <td className="px-6 py-4 text-right">
+                  <div className="flex items-center justify-end gap-1">
+                    <Link
+                      href={post.published ? `/article/${post.slug}` : `/dashboard/editor/${post.id}`}
+                      className={buttonVariants({ variant: "ghost", size: "sm" })}
+                    >
+                      <Eye className="w-4 h-4" />
+                    </Link>
+                    <Link
+                      href={`/dashboard/editor/${post.id}`}
+                      className={buttonVariants({ variant: "ghost", size: "sm" })}
+                    >
+                      <Edit2 className="w-4 h-4" />
+                    </Link>
+                    <form action={handleDelete}>
+                      <input type="hidden" name="id" value={post.id} />
+                      <button
+                        type="submit"
+                        aria-label={`Delete ${post.title}`}
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+                        onClick={(e) => {
+                          if (!confirm(`Delete "${post.title}"? This cannot be undone.`)) {
+                            e.preventDefault();
+                          }
+                        }}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </form>
+                  </div>
                 </td>
               </tr>
             ))}
