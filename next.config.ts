@@ -13,7 +13,7 @@ const securityHeaders = [
   },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+    value: "camera=(), microphone=(), geolocation=()",
   },
   {
     // Content Security Policy
@@ -26,11 +26,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      `script-src 'self' 'unsafe-inline' https://app.posthog.com ${isDev ? "'unsafe-eval'" : ""}`,
+      `script-src 'self' 'unsafe-inline' https://app.posthog.com https://us-assets.i.posthog.com https://us.i.posthog.com ${isDev ? "'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https://res.cloudinary.com https://lh3.googleusercontent.com https://avatars.githubusercontent.com",
-      "connect-src 'self' https://app.posthog.com https://api.cloudinary.com",
+      "connect-src 'self' https://app.posthog.com https://us.i.posthog.com https://us-assets.i.posthog.com https://api.cloudinary.com",
       "media-src 'self'",
       "object-src 'none'",
       "frame-ancestors 'none'",
