@@ -58,9 +58,7 @@ export function PublicFooter() {
               Explore
             </h4>
             {[
-              { href: "/category/essays", label: "Essays" },
-              { href: "/category/tech", label: "Technology" },
-              { href: "/category/culture", label: "Culture" },
+              { href: "/category", label: "Categories" },
               { href: "/brews", label: "Brew Guide" },
               { href: "/archive", label: "Archive" },
             ].map((link) => (

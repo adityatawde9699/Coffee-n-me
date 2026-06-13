@@ -13,6 +13,23 @@ export const getCategories = unstable_cache(
   { tags: ["categories"], revalidate: 600 }
 );
 
+export const getCategoriesWithPostCount = unstable_cache(
+  async () => {
+    try {
+      return await prisma.category.findMany({
+        orderBy: { name: "asc" },
+        include: {
+          _count: { select: { posts: { where: { published: true } } } },
+        },
+      });
+    } catch {
+      return [];
+    }
+  },
+  ["categories-with-count"],
+  { tags: ["categories", "posts"], revalidate: 300 }
+);
+
 export const getCategoryBySlug = unstable_cache(
   async (slug: string) => {
     try {

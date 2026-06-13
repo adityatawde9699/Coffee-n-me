@@ -7,9 +7,7 @@ import { Menu, X } from "lucide-react";
 import { SearchBar } from "@/components/layout/SearchBar";
 
 const links = [
-  { href: "/category/essays", label: "Essays" },
-  { href: "/category/tech", label: "Tech" },
-  { href: "/category/culture", label: "Culture" },
+  { href: "/category", label: "Categories" },
   { href: "/brews", label: "Brew Guide" },
   { href: "/archive", label: "Archive" },
   { href: "/about", label: "About" },
@@ -44,8 +42,8 @@ export function MobileMenu() {
       </button>
 
       {open && (
-        <div className="fixed inset-x-0 top-16 bottom-0 z-50 bg-background/95 backdrop-blur-md animate-fade-in">
-          <nav className="flex flex-col px-6 py-8 gap-1">
+        <div className="fixed inset-x-0 top-16 bottom-0 z-50 bg-background border-t border-border shadow-2xl animate-fade-in">
+          <nav className="flex flex-col px-6 py-8 gap-1 bg-background min-h-full">
             <div className="mb-4">
               <SearchBar />
             </div>
