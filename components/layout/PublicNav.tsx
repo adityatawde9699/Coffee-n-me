@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { SearchBar } from "@/components/layout/SearchBar";
 import { AuthNavButton } from "@/components/layout/AuthNavButton";
+import { Logo } from "@/components/layout/Logo";
 
 export function PublicNav() {
   return (
@@ -10,8 +11,11 @@ export function PublicNav() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-8">
-            <Link href="/" className="text-2xl font-heading tracking-tight">
-              Coffee&apos;n me
+            <Link href="/" className="flex items-center gap-2 group" aria-label="Coffee'n me — home">
+              <Logo className="w-7 h-7 text-primary transition-transform duration-300 group-hover:rotate-6" />
+              <span className="text-2xl font-heading tracking-tight">
+                Coffee&apos;n me
+              </span>
             </Link>
             <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
               <Link href="/category" className="hover:text-foreground transition-colors">

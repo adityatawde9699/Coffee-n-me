@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Coffee, Mail, ArrowUpRight } from "lucide-react";
+import { Logo } from "@/components/layout/Logo";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -22,7 +23,7 @@ export function PublicFooter() {
           {/* Brand Column */}
           <div className="md:col-span-2 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2.5 group w-fit">
-              <Coffee className="w-5 h-5 text-primary transition-transform duration-300 group-hover:rotate-12" />
+              <Logo className="w-7 h-7 text-primary transition-transform duration-300 group-hover:rotate-12" />
               <span className="text-xl font-heading font-semibold tracking-tight">
                 Coffee&apos;n me
               </span>
