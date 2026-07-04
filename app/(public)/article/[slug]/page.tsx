@@ -1,8 +1,9 @@
 import { getPostBySlug, getRelatedPosts } from "@/lib/db/queries/post";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
-import { ReadingProgress } from "@/components/article/ReadingProgress";
+import { ReadingProgressCup } from "@/components/article/ReadingProgressCup";
 import { ArticleCard } from "@/components/article/ArticleCard";
+import { InView } from "@/components/ui/InView";
 import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { sanitizeArticleHtml } from "@/lib/sanitize";
@@ -87,11 +88,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           { name: post.title },
         ]}
       />
-      <ReadingProgress />
+      <ReadingProgressCup />
       <article className="pb-20">
         <header className="py-20 bg-muted/20 border-b mb-16">
           <div className="prose-container">
-            <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+            <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6 animate-fade-in">
               {post.category && (
                 <Link href={`/category/${post.category.slug}`} className="hover:text-primary transition-colors">
                   {post.category.name}
@@ -101,17 +102,23 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <span>{post.publishedAt ? format(post.publishedAt, "MMMM d, yyyy") : "Draft"}</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-heading tracking-tight mb-8 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-heading tracking-tight mb-8 leading-tight animate-fade-in-up">
               {post.title}
             </h1>
 
             {post.excerpt && (
-              <p className="text-xl md:text-2xl text-muted-foreground font-serif italic mb-10 leading-relaxed">
+              <p
+                className="text-xl md:text-2xl text-muted-foreground font-serif italic mb-10 leading-relaxed animate-fade-in-up"
+                style={{ animationDelay: "120ms" }}
+              >
                 {post.excerpt}
               </p>
             )}
 
-            <div className="flex items-center justify-between py-6 border-t border-b">
+            <div
+              className="flex items-center justify-between py-6 border-t border-b animate-fade-in-up"
+              style={{ animationDelay: "220ms" }}
+            >
               <div className="flex items-center gap-3">
                 <div className="flex flex-col">
                   <span className="font-medium">{post.author.name}</span>
@@ -126,7 +133,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
         </header>
 
-        <div className="prose-container font-serif text-lg md:text-xl leading-relaxed space-y-8">
+        <div
+          className="prose-container font-serif text-lg md:text-xl leading-relaxed space-y-8 animate-fade-in-up"
+          style={{ animationDelay: "300ms" }}
+        >
           <div
             dangerouslySetInnerHTML={{ __html: sanitizeArticleHtml(post.content) }}
             className="prose prose-neutral prose-lg max-w-none dark:prose-invert"
@@ -158,11 +168,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               Related stories
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          <InView className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
             {relatedPosts.map((related) => (
               <ArticleCard key={related.id} post={related} />
             ))}
-          </div>
+          </InView>
         </section>
       )}
     </>

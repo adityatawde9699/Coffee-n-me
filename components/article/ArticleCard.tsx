@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
 import { format } from "date-fns";
-import { Coffee, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Coffee } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface ArticleCardProps {
   post: {
@@ -26,6 +26,15 @@ export function ArticleCard({ post, featured = false }: ArticleCardProps) {
   if (featured) {
     return (
       <article className="group relative glass-card rounded-2xl overflow-hidden card-hover">
+        <div
+          aria-hidden="true"
+          className="absolute -right-16 top-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        />
+
         {/* Gradient accent border top */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary opacity-60" />
 
@@ -90,7 +99,16 @@ export function ArticleCard({ post, featured = false }: ArticleCardProps) {
   }
 
   return (
-    <article className="group glass-card rounded-xl overflow-hidden card-hover flex flex-col">
+    <article className="group relative glass-card rounded-xl overflow-hidden card-hover flex flex-col">
+      <div
+        aria-hidden="true"
+        className="absolute -right-12 top-8 h-32 w-32 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      />
+
       {/* Cover image */}
       {post.mainImage ? (
         <div className="relative w-full aspect-[16/9] overflow-hidden">

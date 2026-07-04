@@ -1,6 +1,8 @@
 import { getFeaturedPost, getLatestPosts } from "@/lib/db/queries/post";
 import { ArticleCard } from "@/components/article/ArticleCard";
 import { NewsletterForm } from "@/components/home/NewsletterForm";
+import { HeroBackground } from "@/components/home/HeroBackground";
+import { InView } from "@/components/ui/InView";
 import Link from "next/link";
 import { Coffee, ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
@@ -27,6 +29,10 @@ export default async function HomePage() {
             className="object-cover opacity-30"
             priority
           />
+          {/* Three.js steam, painted before the fade overlays so it gets
+              masked into the background instead of hard-cutting at the
+              section edge below. */}
+          <HeroBackground />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
         </div>
@@ -59,10 +65,10 @@ export default async function HomePage() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/archive"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-medium text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/20"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-medium text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/20"
               >
                 Start Reading
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/about"
@@ -109,11 +115,11 @@ export default async function HomePage() {
         </div>
 
         {latestPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          <InView className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
             {latestPosts.map((post) => (
               <ArticleCard key={post.id} post={post} />
             ))}
-          </div>
+          </InView>
         ) : (
           <div className="py-24 text-center">
             <div className="inline-flex flex-col items-center gap-4">
@@ -134,7 +140,7 @@ export default async function HomePage() {
       {/* ═══════════════════════════════════════════
           NEWSLETTER CTA
           ═══════════════════════════════════════════ */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24">
+      <InView className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24">
         <div className="relative overflow-hidden rounded-2xl glass-card p-6 sm:p-10 md:p-16">
           {/* Decorative gradient blobs */}
           <div className="absolute -top-20 -right-20 w-60 h-60 bg-primary/10 rounded-full blur-3xl" />
@@ -153,7 +159,7 @@ export default async function HomePage() {
             <NewsletterForm />
           </div>
         </div>
-      </section>
+      </InView>
     </div>
   );
 }

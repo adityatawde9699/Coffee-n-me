@@ -2,6 +2,7 @@ import { getPostsByAuthor } from "@/lib/db/queries/post";
 import { getUserById } from "@/lib/db/queries/user";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/article/ArticleCard";
+import { InView } from "@/components/ui/InView";
 import { absoluteUrl } from "@/lib/site";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -74,11 +75,11 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4">
+      <InView className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
         {posts.map((post) => (
           <ArticleCard key={post.id} post={post} />
         ))}
-      </div>
+      </InView>
 
       {posts.length === 0 && (
         <div className="py-20 text-center">

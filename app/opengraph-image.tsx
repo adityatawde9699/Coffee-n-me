@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/lib/site";
+import { LogoWordmark } from "@/components/layout/LogoWordmark";
 
 export const alt = "Coffee'n me — stories brewed with care";
 export const size = { width: 1200, height: 630 };
@@ -16,17 +16,13 @@ export default function OgImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 28,
-          background: "linear-gradient(135deg, #1a1209 0%, #2a1d10 100%)",
-          color: "#f0e6d8",
+          gap: 40,
+          background: "#241610",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ width: 56, height: 56, borderRadius: 9999, background: "#c8915a", display: "flex" }} />
-          <span style={{ fontSize: 64, fontWeight: 800 }}>{siteConfig.name}</span>
-        </div>
-        <span style={{ fontSize: 32, color: "#c9b8a3" }}>
+        <LogoWordmark color="#F8F5F2" style={{ width: 780, height: 282 }} />
+        <span style={{ fontSize: 30, color: "#C3A78E", letterSpacing: 0.5 }}>
           Where words brew slowly and ideas are served warm.
         </span>
       </div>

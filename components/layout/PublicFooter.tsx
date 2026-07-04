@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Coffee, Mail, ArrowUpRight } from "lucide-react";
-import { Logo } from "@/components/layout/Logo";
+import { LogoWordmark } from "@/components/layout/LogoWordmark";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -22,11 +22,8 @@ export function PublicFooter() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Brand Column */}
           <div className="md:col-span-2 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2.5 group w-fit">
-              <Logo className="w-7 h-7 text-primary transition-transform duration-300 group-hover:rotate-12" />
-              <span className="text-xl font-heading font-semibold tracking-tight">
-                Coffee&apos;n me
-              </span>
+            <Link href="/" className="flex items-center group w-fit">
+              <LogoWordmark className="h-9 w-auto text-primary transition-opacity duration-300 group-hover:opacity-80" />
             </Link>
             <p className="text-muted-foreground font-serif italic text-base leading-relaxed max-w-sm">
               A calm space where words brew slowly and ideas are served warm.

@@ -1,6 +1,7 @@
 import { getPublishedPosts } from "@/lib/db/queries/post";
 import { getCategories } from "@/lib/db/queries/category";
 import { ArticleCard } from "@/components/article/ArticleCard";
+import { InView } from "@/components/ui/InView";
 import Link from "next/link";
 import { Coffee, Filter, ChevronLeft, ChevronRight } from "lucide-react";
 import { Metadata } from "next";
@@ -72,11 +73,11 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
       {/* Posts grid */}
       {posts.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          <InView className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
             {posts.map((post) => (
               <ArticleCard key={post.id} post={post} />
             ))}
-          </div>
+          </InView>
 
           {totalPages > 1 && (
             <nav

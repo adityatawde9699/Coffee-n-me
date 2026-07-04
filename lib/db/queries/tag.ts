@@ -1,5 +1,6 @@
 import prisma from "@/lib/db/prisma";
 import { unstable_cache } from "next/cache";
+import { revivePosts } from "./post";
 
 export const getTagBySlug = unstable_cache(
   async (slug: string) => {
@@ -13,7 +14,7 @@ export const getTagBySlug = unstable_cache(
   { tags: ["tags"], revalidate: 600 }
 );
 
-export const getPostsByTag = unstable_cache(
+const _getPostsByTag = unstable_cache(
   async (tagSlug: string) => {
     try {
       return await prisma.post.findMany({
@@ -28,3 +29,5 @@ export const getPostsByTag = unstable_cache(
   ["posts-by-tag"],
   { tags: ["posts", "tags"], revalidate: 300 }
 );
+export const getPostsByTag = async (tagSlug: string) =>
+  revivePosts(await _getPostsByTag(tagSlug));

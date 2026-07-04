@@ -1,4 +1,5 @@
 import { Mail, Code2, MessageCircle, Coffee } from "lucide-react";
+import { InView } from "@/components/ui/InView";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ export default function ContactPage() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-6 animate-fade-in-up stagger-children">
+      <InView className="grid grid-cols-1 gap-6 animate-fade-in-up stagger-children">
         {channels.map(({ icon: Icon, title, desc, href, label }) => (
           <a
             key={title}
@@ -68,7 +69,7 @@ export default function ContactPage() {
             </div>
           </a>
         ))}
-      </div>
+      </InView>
     </div>
   );
 }

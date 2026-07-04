@@ -1,5 +1,6 @@
 import { getPostsByTag, getTagBySlug } from "@/lib/db/queries/tag";
 import { ArticleCard } from "@/components/article/ArticleCard";
+import { InView } from "@/components/ui/InView";
 import { Coffee, ArrowLeft, Hash } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -68,11 +69,11 @@ export default async function TagPage({ params }: TagPageProps) {
       </header>
 
       {posts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <InView className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
           {posts.map((post) => (
             <ArticleCard key={post.id} post={post} />
           ))}
-        </div>
+        </InView>
       ) : (
         <div className="py-32 text-center">
           <div className="inline-flex flex-col items-center gap-4">

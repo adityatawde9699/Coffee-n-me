@@ -1,7 +1,8 @@
 import prisma from "@/lib/db/prisma";
 import { unstable_cache } from "next/cache";
+import { revivePosts } from "./post";
 
-export const searchPosts = unstable_cache(
+const _searchPosts = unstable_cache(
   async (query: string) => {
     if (!query) return [];
 
@@ -29,3 +30,5 @@ export const searchPosts = unstable_cache(
   ["search-posts"],
   { tags: ["posts"], revalidate: 120 }
 );
+export const searchPosts = async (query: string) =>
+  revivePosts(await _searchPosts(query));

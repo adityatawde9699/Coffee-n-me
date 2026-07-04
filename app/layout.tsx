@@ -53,13 +53,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="dark scroll-smooth">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.remove("dark")}catch(e){}`,
-          }}
-        />
+        {/* Scroll-reveal (see components/ui/InView.tsx) needs JS to add
+            `.in-view`; without it, keep the content visible. */}
+        <noscript>
+          <style>{`.stagger-children > * { animation: none !important; } .reveal-group:not(.stagger-children) { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
       </head>
       <body
         className={`${inter.variable} ${sourceSerif.variable} font-serif antialiased`}

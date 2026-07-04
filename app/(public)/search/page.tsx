@@ -1,5 +1,6 @@
 import { searchPosts } from "@/lib/db/queries/search";
 import { ArticleCard } from "@/components/article/ArticleCard";
+import { InView } from "@/components/ui/InView";
 import { SearchBar } from "@/components/layout/SearchBar";
 import { Coffee, Search as SearchIcon } from "lucide-react";
 import { Metadata } from "next";
@@ -44,11 +45,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       </header>
 
       {query && posts.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <InView className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
           {posts.map((post) => (
             <ArticleCard key={post.id} post={post} />
           ))}
-        </div>
+        </InView>
       )}
 
       {query && posts.length === 0 && (

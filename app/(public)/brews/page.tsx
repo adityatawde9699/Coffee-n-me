@@ -18,6 +18,7 @@ import {
   Users,
   BookOpen,
 } from "lucide-react";
+import { InView } from "@/components/ui/InView";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -215,7 +216,7 @@ export default function BrewsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children">
+        <InView className="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children">
           {brews.map(({ icon: Icon, name, tagline, moment, recipe, notes, desc, barista }) => (
             <article
               key={name}
@@ -284,7 +285,7 @@ export default function BrewsPage() {
               </div>
             </article>
           ))}
-        </div>
+        </InView>
       </section>
 
       {/* Dialing it in — barista principles */}
@@ -302,7 +303,7 @@ export default function BrewsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+        <InView className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
           {principles.map(({ icon: Icon, title, desc }, i) => (
             <div key={title} className="glass-card card-hover rounded-2xl p-7 flex flex-col gap-3 relative">
               <span className="absolute top-6 right-6 text-4xl font-heading font-bold text-primary/10 leading-none select-none">
@@ -315,7 +316,7 @@ export default function BrewsPage() {
               <p className="text-sm text-muted-foreground font-serif leading-relaxed">{desc}</p>
             </div>
           ))}
-        </div>
+        </InView>
       </section>
 
       {/* Coffee shop vision */}
@@ -334,7 +335,7 @@ export default function BrewsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <InView className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
           {shopQualities.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="glass-card card-hover rounded-xl p-6 flex flex-col gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -344,7 +345,7 @@ export default function BrewsPage() {
               <p className="text-sm text-muted-foreground font-serif leading-relaxed">{desc}</p>
             </div>
           ))}
-        </div>
+        </InView>
       </section>
 
       {/* CTA */}
