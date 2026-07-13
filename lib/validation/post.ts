@@ -1,30 +1,20 @@
 import { z } from "zod";
 
-// Coerce empty strings to null before running uuid/url validation.
-// The editor <select> sends "" when nothing is selected, but Prisma
-// expects null for optional foreign-key and image fields.
-const emptyToNull = z.preprocess(
-  (val) => (val === "" ? null : val),
-  z.string().nullable().optional()
-);
+// Helper: coerce empty string OR null → null before further validation.
+// Used for all optional fields that come from HTML form selects/inputs
+// which send "" when nothing is selected instead of null.
+const nullish = <T extends z.ZodTypeAny>(schema: T) =>
+  z.preprocess((val) => (val === "" || val === null ? null : val), schema.nullable().optional());
 
 export const postSchema = z.object({
   title: z.string().min(1, "Title is required").max(100),
   slug: z.string().min(1, "Slug is required").regex(/^[a-z0-9-]+$/, "Invalid slug format"),
   content: z.string().min(1, "Content is required").max(200_000, "Content is too long"),
-  excerpt: z.string().max(300).optional(),
-  categoryId: z.preprocess(
-    (val) => (val === "" ? null : val),
-    z.string().uuid().nullable().optional()
-  ),
-  mainImage: z.preprocess(
-    (val) => (val === "" ? null : val),
-    z.string().url().nullable().optional()
-  ),
+  // excerpt: null from the DB becomes "" in state, but null can also arrive directly.
+  excerpt: nullish(z.string().max(300)),
+  categoryId: nullish(z.string().uuid()),
+  mainImage: nullish(z.string().url()),
   featured: z.boolean().default(false),
 });
-
-// emptyToNull is exported in case other schemas need the same pattern.
-export { emptyToNull };
 
 export type PostInput = z.infer<typeof postSchema>;

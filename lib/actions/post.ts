@@ -51,7 +51,9 @@ export async function updatePost(id: string, data: Partial<PostInput>) {
   // Validate + whitelist incoming fields (never trust the client payload).
   const parsed = postSchema.partial().safeParse(data);
   if (!parsed.success) {
-    throw new Error(parsed.error.issues[0]?.message ?? "Invalid post data");
+    const msg = parsed.error.issues[0]?.message ?? "Invalid post data";
+    console.error("[updatePost] Validation failed:", JSON.stringify(parsed.error.issues));
+    throw new Error(msg);
   }
 
   // Unchecked variant lets us set scalar foreign keys (categoryId) directly.
@@ -74,6 +76,7 @@ export async function updatePost(id: string, data: Partial<PostInput>) {
     if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === "P2002") {
       throw new Error("That slug is already taken. Please choose another.");
     }
+    console.error("[updatePost] Database error:", err);
     throw err;
   }
 
