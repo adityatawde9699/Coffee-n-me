@@ -11,7 +11,7 @@ export const postSchema = z.object({
   slug: z.string().min(1, "Slug is required").regex(/^[a-z0-9-]+$/, "Invalid slug format"),
   content: z.string().min(1, "Content is required").max(200_000, "Content is too long"),
   // excerpt: null from the DB becomes "" in state, but null can also arrive directly.
-  excerpt: nullish(z.string().max(300)),
+  excerpt: nullish(z.string().max(500, "Excerpt must be 500 characters or fewer")),
   categoryId: nullish(z.string().uuid()),
   mainImage: nullish(z.string().url()),
   featured: z.boolean().default(false),
